@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# T-PlannerApp-FrontEnd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FrontEnd -> React
 
-## Available Scripts
+# About APP
 
-In the project directory, you can run:
+Purpose of the app:\
+Receive data:
 
-### `npm start`
+Start date\
+Volume of work in hours\
+End date\
+Busy days\
+Busy time of day in hours
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Be able to calculate and present the following data:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Whether the user can complete the work on time\
+How much time on average should be set aside per day
 
-### `npm test`
+## Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To launch the FrontEnd application:
 
-### `npm run build`
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open http://localhost:3000 to view it in your browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There is no tests for this project.
 
-### `npm run eject`
+# You will also need:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Use DB starter files to creat new USER, DB, TABLES
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://github.com/ToKaCoDe/T-PlannerApp-DB.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Use BackEnd application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://github.com/ToKaCoDe/T-PlannerApp-BackEnd.git
 
-## Learn More
+After cloning the repository, run this in CMD line to launch the BackEnd application:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+mwnv spring-boot:run
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+or
 
-### Code Splitting
+Run As Java Application from your IDE - /todoplanner/src/main/java/tokacode/todoplanner/TodoplannerApplication.java
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
