@@ -28,9 +28,15 @@ export default function MainInfo() {
     }).then(() => {
       console.log("Main info was sent - ", { maininfo });
     });
-
-    
   };
+
+  React.useEffect(() => {
+    fetch("http://localhost:8070/busyDate/concl")
+      .then((res) => res.json())
+      .then((result) => {
+        setAnswerList(result);
+      })}
+    );
 
   return (
     <Box
@@ -85,16 +91,12 @@ export default function MainInfo() {
         </Button>
         <br />
         <h2> Info to You</h2>
-        React.useEffect(() =>{" "}
-        {fetch("http://localhost:8070/busyDate/concl")
-          .then((res) => res.json())
-          .then((result) => {
-            setAnswerList(result);
-          })}
-        );
+       
         {answerList.answer}
         <br />
+        <br />
         You will need {answerList.hoursPerDay} hours per day !!!
+
       </Paper>
     </Box>
   );
