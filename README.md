@@ -2,6 +2,24 @@
 
 FrontEnd -> React
 
+# About APP
+
+Purpose of the app:\
+Receive data:
+
+Start date\
+Volume of work in hours\
+End date\
+Busy days\
+Busy time of day in hours
+
+Be able to calculate and present the following data:
+
+Whether the user can complete the work on time\
+How much time on average should be set aside per day
+
+## Instructions
+
 To launch the FrontEnd application:
 
 npm start
