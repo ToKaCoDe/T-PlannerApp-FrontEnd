@@ -18,6 +18,10 @@ Be able to calculate and present the following data:
 Whether the user can complete the work on time\
 How much time on average should be set aside per day
 
+### Note:
+
+The program automatically allocates 2 hours per day for eating and 8 hours weekday for work
+
 ## Instructions
 
 To launch the FrontEnd application:
@@ -32,7 +36,7 @@ There is no tests for this project.
 
 # You will also need:
 
-Use DB starter files to creat new USER, DB, TABLES
+Use DB 
 
 https://github.com/ToKaCoDe/T-PlannerApp-DB.git
 
@@ -40,12 +44,6 @@ Use BackEnd application
 
 https://github.com/ToKaCoDe/T-PlannerApp-BackEnd.git
 
-After cloning the repository, run this in CMD line to launch the BackEnd application:
 
-mwnv spring-boot:run
-
-or
-
-Run As Java Application from your IDE - /todoplanner/src/main/java/tokacode/todoplanner/TodoplannerApplication.java
 
 
