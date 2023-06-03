@@ -28,7 +28,10 @@ export default function MainInfo() {
     }).then(() => {
       console.log("Main info was sent - ", { maininfo });
     });
+    window.location.reload();
   };
+
+  
 
   React.useEffect(() => {
     fetch("http://localhost:8070/busyDate/concl")
@@ -89,6 +92,9 @@ export default function MainInfo() {
         <Button variant="outlined" onClick={handleClickSubmit}>
           Submit
         </Button>
+
+        
+
         <br />
         <h2> Info to You</h2>
        
