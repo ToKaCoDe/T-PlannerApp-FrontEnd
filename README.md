@@ -24,6 +24,10 @@ The program automatically allocates 2 hours per day for eating and 8 hours weekd
 
 ## Instructions
 
+need to install node modules
+
+npm install
+
 To launch the FrontEnd application:
 
 npm start
