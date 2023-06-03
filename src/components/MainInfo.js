@@ -3,10 +3,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Paper, Button } from "@mui/material";
 
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 
 export default function MainInfo() {
   const paperStyle = { padding: "20px 20px", width: 600, margin: "20px auto" };
@@ -16,6 +16,8 @@ export default function MainInfo() {
   const [deadline, setDeadline] = React.useState("");
 
   const [answerList, setAnswerList] = React.useState([]);
+
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleClickSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +43,10 @@ export default function MainInfo() {
       })}
     );
 
+    
+
+
+    
   return (
     <Box
       component="form"
@@ -52,15 +58,20 @@ export default function MainInfo() {
     >
       <Paper elevation={3} style={paperStyle}>
         <h2>Add main info</h2>
-        <TextField
-          id="outlined-basic"
-          label="Starting date (YYYY-MM-DD)"
-          variant="outlined"
-          fullWidth
-          style={textFieldStyle}
-          value={startdate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
+
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={["DatePicker"]}>
+            <DatePicker
+              label="Starting date"
+              value={startdate}
+              onChange={(value) => setStartDate(value)}
+              format="YYYY-MM-DD"
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+
+        <br/>
+        
         <TextField
           id="outlined-basic"
           label="Working scope (Hours)"
@@ -68,27 +79,32 @@ export default function MainInfo() {
           fullWidth
           style={textFieldStyle}
           value={scope}
-          onChange={(e) => setScope(e.target.value)}
+          onChange={(e) => {
+            if (/^\d+$/.test(e.target.value) &&  e.target.value === '' ) {
+              setScope(e.target.value);
+            } else {
+              setErrorMessage('Should be integer');
+            }
+          }}
+            
+           // setScope(e.target.value)}
         />
-        <TextField
-          id="outlined-basic"
-          label="Deadline (YYYY-MM-DD)"
-          variant="outlined"
-          fullWidth
-          style={textFieldStyle}
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
-        />
-        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+        
+        <br/>
+        <span style={{ color: 'red' }}>{errorMessage}</span>
+        <br/>
+
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DemoContainer components={["DatePicker"]}>
             <DatePicker
-              label="Basic date picker"
-              value={startdate}
-              onChange={(e) => setStartDate(e.target.value)}
+              label="Deadline"
+              value={deadline}
+              onChange={(value) => setDeadline(value)}
               format="YYYY-MM-DD"
             />
           </DemoContainer>
-        </LocalizationProvider> */}
+        </LocalizationProvider>
+
         <Button variant="outlined" onClick={handleClickSubmit}>
           Submit
         </Button>

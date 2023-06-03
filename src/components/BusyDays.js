@@ -3,6 +3,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Paper, Button } from "@mui/material";
 
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+
 export default function BusyDays() {
   const paperStyle = { padding: "20px 20px", width: 600, margin: "20px auto" };
   const textFieldStyle = { margin: "5px auto" };
@@ -10,6 +15,9 @@ export default function BusyDays() {
   const [busyhours, setBusyhours] = React.useState("");
 
   const [busyDatesList, setBusyDatesList] = React.useState([]);
+
+  const [errorMessage, setErrorMessage] = React.useState("");
+
 
   const handleClickAdd = (e) => {
     e.preventDefault();
@@ -54,15 +62,20 @@ export default function BusyDays() {
     >
       <Paper elevation={3} style={paperStyle}>
         <h2>Add busy days</h2>
-        <TextField
-          id="outlined-basic"
-          label="Busy date (YYYY-MM-DD)"
-          variant="outlined"
-          fullWidth
-          style={textFieldStyle}
-          value={busydate}
-          onChange={(e) => setBusydate(e.target.value)}
-        />
+        
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={["DatePicker"]}>
+            <DatePicker
+              label="Your busy day"
+              value={busydate}
+              onChange={(value) => setBusydate(value)}
+              format="YYYY-MM-DD"
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+        
+        <br/>
+
         <TextField
           id="outlined-basic"
           label="Busy hours (Hours)"
@@ -70,9 +83,19 @@ export default function BusyDays() {
           fullWidth
           style={textFieldStyle}
           value={busyhours}
-          onChange={(e) => setBusyhours(e.target.value)}
+          onChange={(e) => {
+            if (/^\d+$/.test(e.target.value) && ( e.target.value === '' || parseInt(e.target.value) <= 16)) {
+              setBusyhours(e.target.value);
+            } else {
+              setErrorMessage('Should be integer less or equal then 16');
+            }
+          }}
         />
+
         <br/>
+        <span style={{ color: 'red' }}>{errorMessage}</span>
+        <br/>
+        
         <Button variant="outlined" onClick={handleClickAdd}>
           Add
         </Button>
